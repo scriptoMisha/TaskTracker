@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+build/
+out/
+
+*.iml
+*.iws
+*.ipr
+
+*.log
+.env
+application-local.yml
+
+.DS_Store
+Thumbs.db

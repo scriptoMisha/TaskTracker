@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mini-tasks</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header>
+    <h1>mini-tasks</h1>
+    <div id="who"></div>
+  </header>
+
+  <main>
+    <!-- ===================== Auth view ===================== -->
+    <section id="auth-view" class="card hidden">
+      <div class="tabs">
+        <button id="tab-login" class="tab active" data-tab="login">Login</button>
+        <button id="tab-register" class="tab" data-tab="register">Register</button>
+      </div>
+
+      <form id="login-form" class="form">
+        <label>Email <input type="email" name="email" required></label>
+        <label>Password <input type="password" name="password" required></label>
+        <button type="submit">Log in</button>
+      </form>
+
+      <form id="register-form" class="form hidden">
+        <label>Email <input type="email" name="email" required></label>
+        <label>Password <input type="password" name="password" minlength="8" required></label>
+        <button type="submit">Create account</button>
+      </form>
+
+      <p id="auth-error" class="error"></p>
+    </section>
+
+    <!-- ===================== App view ===================== -->
+    <section id="app-view" class="hidden">
+      <div class="card">
+        <h2>New task</h2>
+        <form id="create-form" class="form inline">
+          <input name="title" placeholder="Task title" required maxlength="200">
+          <select name="priority">
+            <option value="1">P1</option>
+            <option value="2">P2</option>
+            <option value="3" selected>P3</option>
+            <option value="4">P4</option>
+            <option value="5">P5</option>
+          </select>
+          <input name="tags" placeholder="tags (comma-separated)">
+          <button type="submit">Add</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Filters</h2>
+        <form id="filter-form" class="form inline">
+          <select name="status">
+            <option value="">any status</option>
+            <option value="TODO">TODO</option>
+            <option value="IN_PROGRESS">IN_PROGRESS</option>
+            <option value="DONE">DONE</option>
+          </select>
+          <input name="tag" placeholder="tag">
+          <button type="submit">Apply</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Tasks</h2>
+        <ul id="tasks" class="tasks"></ul>
+        <p id="tasks-empty" class="muted hidden">No tasks yet.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
